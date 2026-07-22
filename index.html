@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chúc Mừng Sinh Nhật - Dương Bảo Ngọc (Tuổi 18)</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,600;0,800;1,400&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loader-content">
+            <div class="magic-circle"></div>
+            <h2 class="loader-title">✨ Đang thắp sáng vũ trụ tuổi 18...</h2>
+            <div class="progress-bar-container">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+            <p class="loader-sub">Dành tặng Dương Bảo Ngọc • 23/07/2008</p>
+        </div>
+    </div>
+
+    <!-- Background Canvas Layer -->
+    <div id="canvas-container"></div>
+    <canvas id="cursor-canvas"></canvas>
+
+    <!-- Overlay Audio Visualizer & Background Music -->
+    <audio id="bg-music" loop src="music.mp3"></audio>
+
+    <!-- UI Overlay Wrapper -->
+    <div class="ui-wrapper">
+        
+        <!-- Header Section -->
+        <header class="hero-header">
+            <div class="badge-18">✨ Tuổi 18 Rực Rỡ ✨</div>
+            <h1 class="typing-title" id="typing-title"></h1>
+            <h2 class="hero-name glow-text" id="typing-name"></h2>
+            <p class="subtitle-date">23 • 07 • 2008</p>
+        </header>
+
+        <!-- Main Interactive Area -->
+        <main class="main-content">
+            
+            <!-- Floating Wishes Letter (Glassmorphism) -->
+            <section class="glass-card wishes-card">
+                <div class="card-header">
+                    <i class="fa-solid fa-crown header-icon"></i>
+                    <h3>Lời Chúc Sinh Nhật Special</h3>
+                </div>
+                <div class="letter-content" id="typing-letter">
+                    <!-- Typing effect injects content here -->
+                </div>
+            </section>
+
+            <!-- Wish Box (Glassmorphism Card) -->
+            <section class="glass-card wish-box-card">
+                <div class="card-header">
+                    <i class="fa-solid fa-wand-magic-sparkles header-icon"></i>
+                    <h3>✨ Gửi Điều Ước Sinh Nhật ✨</h3>
+                </div>
+                <p class="wish-sub">Hãy gửi một ước mơ vào bầu trời đêm rực rỡ này...</p>
+                
+                <form id="wish-form" onsubmit="event.preventDefault();">
+                    <div class="input-wrapper">
+                        <textarea id="wish-input" rows="3" placeholder="Hãy viết điều ước của bạn... (Ví dụ: Đỗ nguyện vọng 1 vào ngành Sư phạm Toán!)" required></textarea>
+                        <span class="focus-border"></span>
+                    </div>
+                    <button type="button" id="btn-send-wish" class="btn-primary">
+                        <span class="btn-text">💖 Gửi điều ước</span>
+                        <div class="btn-loader hidden"></div>
+                    </button>
+                </form>
+
+                <div id="last-wish-display" class="last-wish-box hidden">
+                    <h4><i class="fa-solid fa-star"></i> Điều ước gần nhất của bạn:</h4>
+                    <p id="saved-wish-text"></p>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Floating Interactive Controls -->
+        <div class="floating-controls">
+            <button id="btn-blow" class="control-btn pulse">
+                <i class="fa-solid fa-cake-candles"></i>
+                <span>🎂 Thổi nến</span>
+            </button>
+            <button id="btn-music" class="control-btn">
+                <i class="fa-solid fa-music" id="music-icon"></i>
+                <span id="music-text">🎵 Play Music</span>
+            </button>
+        </div>
+
+        <!-- Audio Visualizer Canvas -->
+        <canvas id="visualizer-canvas"></canvas>
+
+        <!-- Footer -->
+        <footer class="glass-footer">
+            <p class="footer-text">
+                "Chúc Dương Bảo Ngọc luôn kiên trì theo đuổi ước mơ trở thành giáo viên dạy Toán. Mong rằng kỳ thi năm sau sẽ là cánh cửa đầu tiên đưa bạn đến với bục giảng. Chúc tuổi 18 thật rực rỡ và hạnh phúc! ❤️"
+            </p>
+        </footer>
+
+    </div>
+
+    <!-- Countdown Modal Overlay for Blow Candle -->
+    <div id="countdown-overlay" class="hidden">
+        <div class="countdown-number" id="countdown-number">3</div>
+        <p class="countdown-text">Hãy nhắm mắt lại và ước một điều ước...</p>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast hidden">
+        <i class="fa-solid fa-meteor"></i>
+        <span id="toast-message"></span>
+    </div>
+
+    <!-- External Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
