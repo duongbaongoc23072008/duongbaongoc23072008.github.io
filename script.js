@@ -536,7 +536,7 @@ function typeWriter(elementId, text, speed, callback) {
 function startLetterTyping() {
     const letterText = `Chúc mừng sinh nhật Dương Bảo Ngọc!
 
-Chúc bạn bước sang tuổi 18 với thật nhiều niềm vui, sức khỏe và hạnh phúc.
+Chúc mày bước sang tuổi 18 với thật nhiều niềm vui, sức khỏe và hạnh phúc.
 
 Hy vọng mày sẽ luôn giữ được niềm đam mê học tập, không ngừng cố gắng để chinh phục kỳ thi quan trọng trong sắp tới.
 
